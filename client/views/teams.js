@@ -9,14 +9,17 @@ Template.teams.helpers({
 
 Template.teams.events({
   'click a.create': function(e, tpl){
+    e.preventDefault();
     Session.set('isCreatingTeam', true);
   },
 
   'click a.cancel': function(e, tpl){
+    e.preventDefault();
     Session.set('isCreatingTeam', false);
   },
 
   'submit form.create-team': function(e, tpl){
+    e.preventDefault();
     var teamName = $('input[name=name]').val();
     Teams.insert({name: teamName});
   }
